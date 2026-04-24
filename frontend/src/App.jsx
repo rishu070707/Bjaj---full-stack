@@ -21,7 +21,7 @@ import {
   Code2
 } from 'lucide-react';
 
-const API_URL = 'http://localhost:5000/bfhl';
+const API_URL = 'https://bjaj-full-stack.onrender.com/bfhl';
 
 function App() {
   const [input, setInput] = useState('{\n  "data": ["A->B", "A->C", "B->D", "X->Y", "Y->Z", "Z->X"]\n}');
@@ -250,11 +250,13 @@ function Metric({ label, value, icon, color }) {
 
 function SummaryBadge({ icon, label, value, isDanger }) {
   return (
-    <div className={`flex items-center gap-3 border-4 border-black px-6 py-3 font-black shadow-[4px_4px_0px_#000] ${isDanger ? 'bg-danger text-white' : 'bg-white'}`}>
-       {icon}
-       <div className="flex-col leading-none">
-          <p className="text-[8px] opacity-70 mb-1">{label}</p>
-          <p className="text-lg">{value}</p>
+    <div className={`flex items-center gap-4 border-4 border-black px-6 py-4 font-black shadow-[6px_6px_0px_#000] ${isDanger ? 'bg-red-600 text-white' : 'bg-white text-black'} hover:-translate-y-1 hover:shadow-[8px_8px_0px_#000] transition-all`}>
+       <div className="p-2 border-2 border-current bg-white/10">
+         {icon}
+       </div>
+       <div className="flex flex-col">
+          <p className="text-xs font-black uppercase tracking-wider mb-0.5">{label}</p>
+          <p className="text-2xl font-black">{value}</p>
        </div>
     </div>
   );
